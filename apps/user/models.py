@@ -5,6 +5,8 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 
+# 这里选择直接继承AbstractBaseUser 和PermissionsMixin 而不是拓展AbstractUser类 是为了精简User表字段 其他字段可自行添加
+
 class User(AbstractBaseUser, PermissionsMixin):
     username_validator = UnicodeUsernameValidator()
 
