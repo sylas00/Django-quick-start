@@ -4,6 +4,7 @@
 
 
 class RootException(Exception):
+    """预留拓展用"""
     pass
 
 
