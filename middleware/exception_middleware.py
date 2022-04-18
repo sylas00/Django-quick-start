@@ -12,6 +12,7 @@ logger = logging.getLogger('django')
 
 def handler_process(request, exception):
     """"""
+
     return JsonResponse(data={"code": exception.code, "errmsg": exception.errmsg})
 
 
@@ -32,5 +33,6 @@ class ExceptionMiddleware(MiddlewareMixin):
             return handler_process(request=request, exception=exception)
         # 其他异常
         else:
-            logger.error(traceback.format_exc())
+            logger.error("异常请求" + request.path + '\n'
+                                                 "异常信息:" + traceback.format_exc())
             return JsonResponse(data={"code": StatusCodeEnum.SERVER_ERR.code, "errmsg": StatusCodeEnum.SERVER_ERR.msg})
