@@ -8,10 +8,6 @@ from libs.exception_enum import StatusCodeEnum
 """
 
 
-class RootResponse(Response):
-    pass
-
-
 class APIResponse(Response):
     def __init__(self, data: dict):
         """
