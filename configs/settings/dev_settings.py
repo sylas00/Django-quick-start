@@ -2,6 +2,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import sys
+from datetime import timedelta
 from pathlib import Path
 
 # BASE_DIR 指的就是manager文件所在的路径 由于我自行修改了路径 所以要再加一个parent
@@ -112,6 +113,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# JWT配置
+SIMPLE_JWT = {
+    'SLIDING_TOKEN_LIFETIME': timedelta(minutes=1500),
+    'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
+}
 
 # DRF配置
 REST_FRAMEWORK = {
